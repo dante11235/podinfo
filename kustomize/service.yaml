@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: podinfo
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: podinfo
   ports:
@@ -15,3 +15,7 @@ spec:
       targetPort: grpc
       protocol: TCP
       name: grpc
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 100.64.0.246
