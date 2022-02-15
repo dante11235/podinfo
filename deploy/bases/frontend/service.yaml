@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: frontend
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: frontend
   ports:
@@ -11,3 +11,7 @@ spec:
       port: 80
       protocol: TCP
       targetPort: http
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 100.64.0.246
